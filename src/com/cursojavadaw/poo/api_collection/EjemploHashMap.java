@@ -1,8 +1,9 @@
 package com.cursojavadaw.poo.api_collection;
 
-import com.cursojavadaw.poo.api_collection.Alumno;
-
-import java.util.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Objects;
 
 public class EjemploHashMap {
     public static void main(String[] args) {
@@ -16,7 +17,19 @@ public class EjemploHashMap {
        // alumno.forEach((a,b)-> System.out.println(a.getNota() + " id "+b)); //itero en el diccionario sobre cada llave valor con foeach
         System.out.println(alumno);
         System.out.println();
-        Alumno alumnoEliminar=null;
+        Iterator<Alumno> iterator= alumno.keySet().iterator();
+        iterator.forEachRemaining(e-> {
+            if (Objects.equals(e.getNombre(), "Jua")){
+                iterator.remove();
+            }
+        });
+        alumno.forEach((a,b)-> System.out.println(a+"="+b));
+
+
+
+
+
+        /*Alumno alumnoEliminar=null;
         for(Map.Entry<Alumno,Integer> par: alumno.entrySet()){
           if(Objects.equals(par.getKey().getNombre(), "Jua")){
               alumnoEliminar=par.getKey();
@@ -24,7 +37,7 @@ public class EjemploHashMap {
           }
         }
         alumno.remove(alumnoEliminar);
-        System.out.println(alumno);
+        System.out.println(alumno);*/
 
 
 

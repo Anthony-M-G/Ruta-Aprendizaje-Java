@@ -2,6 +2,7 @@ package com.cursojavadaw.poo.cursojava_ejerciciosvarios.ejemplo_vuelos;
 
 import java.time.LocalDateTime;
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class mainVuelos {
@@ -75,8 +76,9 @@ public class mainVuelos {
         //System.out.println(list.vueloReciente());
         //list.getLista();
 
-        System.out.println(Collections.min(list.getLlegadasVuelos().values(), Comparator.comparing(Vuelo::getCantidadPasajeros)));
-
+        //System.out.println(Collections.min(list.getLlegadasVuelos().values(), Comparator.comparing(Vuelo::getCantidadPasajeros)));
+        List<Vuelo> pasajerosMayores=list.getLlegadasVuelos().values().stream().filter(a-> 40<a.getCantidadPasajeros()&& a.getCantidadPasajeros()< 50).toList();
+        System.out.println(pasajerosMayores);
     }
 
 
